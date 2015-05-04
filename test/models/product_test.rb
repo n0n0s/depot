@@ -11,6 +11,17 @@ class ProductTest < ActiveSupport::TestCase
     assert_equal [I18n.translate('errors.messages.taken')],
                  product.errors[:title]
   end
+  test "title must be max 20 charactrrs" do
+    product = Product.new(description: "yyy",
+                          image_url: "zzz.jpg",
+                          price: 12)
+    product.title = "qwertyuiopasdfghjklzxcv"
+    assert product.invalid?
+    assert_equal ["is too long (maximum is 20 characters)"],
+                 product.errors[:title]
+    product.title = "Alexndros"
+    assert product.valid?
+  end
   test "product attributes must not be empty" do
     product = Product.new
     assert product.invalid?
