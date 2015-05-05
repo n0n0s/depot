@@ -16,5 +16,9 @@
 !/log/.keep
 /tmp
 .idea
+<<<<<<< HEAD
 *.iml
 
+=======
+*.iml
+>>>>>>> bdaf5c75fb96159c3f708fbe598b4aa7f987238e
